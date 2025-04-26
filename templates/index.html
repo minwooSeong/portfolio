@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>이름 입력</title>
-</head>
+<head><meta charset="utf-8"><title>방명록</title></head>
 <body>
-    <h1>이름을 입력하세요</h1>
-    <form action="/greet" method="POST">
-        <input type="text" name="username" placeholder="이름">
-        <input type="submit" value="인사 받기">
+    <h1>방명록 남기기</h1>
+    <form action="/post" method="POST">
+        <input type="text" name="name" placeholder="이름" required><br><br>
+        <textarea name="content" placeholder="메시지" required></textarea><br><br>
+        <input type="submit" value="남기기">
     </form>
+    <br>
+    <a href="/messages">방명록 보기</a>
 </body>
 </html>
