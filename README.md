@@ -1,16 +1,18 @@
 
-flask를 이용한
-웹사이트 생성
+-Flask를 이용한 웹사이트 생성-
 
-방명록 남기기 및 삭제기능 추가
+-기능-
 
-portfolio/
-├── app.py
-├── templates/
-│   ├── index.html
-│   └── messages.html
-└── guestbook.db  ← SQLite DB 파일
+1. 방명록 작성 (이름, 내용, 비밀번호 입력)
 
+2. 방명록 삭제 (비밀번호 입력 후 삭제)
 
+3. 데이터 저장은 SQLite 데이터베이스
+
+만든 파일은:
+
+app.py (서버 로직)
+
+templates/index.html (웹 화면)
 
 
