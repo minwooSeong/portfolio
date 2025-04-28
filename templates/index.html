@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>방명록</title></head>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>방명록</title>
+</head>
 <body>
-    <h1>방명록 남기기</h1>
-    <form action="/post" method="POST">
-        <input type="text" name="name" placeholder="이름" required><br><br>
-        <textarea name="content" placeholder="메시지" required></textarea><br><br>
-        <input type="submit" value="남기기">
+    <h1>방명록</h1>
+
+    <!-- 메시지 작성 폼 -->
+    <form method="post" action="/add">
+        <input type="text" name="name" placeholder="이름" required>
+        <input type="text" name="content" placeholder="메시지" required>
+        <input type="password" name="password" placeholder="삭제 비밀번호" required>
+        <button type="submit">등록</button>
     </form>
-    <br>
-    <a href="/messages">방명록 보기</a>
+
+    <hr>
+
+    <!-- 메시지 리스트 출력 -->
+    {% for msg in messages %}
+        <div>
+            <strong>{{ msg.name }}</strong> ({{ msg.created_at.strftime('%Y-%m-%d %H:%M') }})<br>
+            {{ msg.content }}
+            <form method="post" action="/delete/{{ msg.id }}">
+                <input type="password" name="password" placeholder="비밀번호" required>
+                <button type="submit">삭제</button>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
 </body>
 </html>
